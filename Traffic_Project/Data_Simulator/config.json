@@ -1,0 +1,19 @@
+{
+    "azure_connection_string": "YOUR_AZURE_CONNECTION_STRING",
+    "event_hub_name": "YOUR_EVENT_HUB_NAME",
+    "location": "Maadi Corniche Intersection",
+    "vehicle_types": ["Car", "Heavy Truck", "Bus", "Motorcycle"],
+    "emergency_vehicles": ["Ambulance", "Fire Truck", "Police"],
+    "lanes": [1, 2, 3],
+    "speed_limit": 80,
+    "normal_speed_range": [60, 100],
+    "rush_hour_speed_range": [10, 30],
+    "anomaly_probability": 0.03,
+    "accident_probability": 0.01,
+    "pedestrian_crossing_probability": 0.05,
+    "traffic_light_durations": {
+        "green": 45,
+        "red": 40,
+        "yellow": 5
+    }
+}
