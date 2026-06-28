@@ -1,6 +1,6 @@
 {
-    "azure_connection_string": "YOUR_AZURE_CONNECTION_STRING",
-    "event_hub_name": "YOUR_EVENT_HUB_NAME",
+    "azure_connection_string": "Endpoint=sb://trafficstreaming.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=HOwKuasfB324ZNIBffi4OVcgb2ae4gv/h+AEhKOwtis=",
+    "event_hub_name": "traffic_stream",
     "location": "Maadi Corniche Intersection",
     "vehicle_types": ["Car", "Heavy Truck", "Bus", "Motorcycle"],
     "emergency_vehicles": ["Ambulance", "Fire Truck", "Police"],
