@@ -1,64 +1,186 @@
-System Requirements
-Operating System: Windows 10/11, macOS, or Linux.
+# Cairo Real-Time Traffic Enforcement Analytics Pipeline
 
-Software: Python 3.8 or higher.
+## Overview
 
-Cloud Infrastructure (if applicable): Microsoft Azure (for routing or processing the data streams).
+The Cairo Real-Time Traffic Enforcement Analytics Pipeline is an end-to-end cloud-based data engineering project that ingests, processes, and visualizes traffic enforcement data in real time.
 
-Dependencies: Python dashboarding and visualization libraries (e.g., Streamlit, Dash, or Matplotlib/Plotly) as listed in the requirements file.
+The system retrieves JSON Lines traffic data from Microsoft Azure Blob Storage, normalizes and validates the incoming records, and presents live operational insights through an interactive Streamlit dashboard. It is designed to remain operational even when cloud connectivity or data quality issues occur by automatically switching to a local simulation mode.
 
-Installation Steps
-Clone the project repository to your local machine.
+---
 
-Open your terminal and navigate into the project directory.
+## Features
 
-(Optional but recommended) Create and activate a virtual environment:
+* Real-time Azure Blob Storage ingestion
+* JSON Lines parsing and validation
+* Automatic schema recovery for missing fields
+* Interactive Streamlit dashboard
+* Vehicle type and traffic signal filtering
+* Speed distribution analytics
+* Geographical incident mapping
+* License plate search
+* Automatic incident logging
+* Local simulation mode during Azure outages
 
-Windows: python -m venv venv and venv\Scripts\activate
+---
 
-Mac/Linux: python3 -m venv venv and source venv/bin/activate
+## Project Architecture
 
-Install the required Python dependencies by running:
+```
+Azure Blob Storage
+│
+├── violations (Summary JSONL)
+└── output (Details JSONL)
+          │
+          ▼
+ JSON Lines Parser
+          │
+          ▼
+ Schema Validation
+          │
+          ▼
+ Data Processing
+          │
+          ▼
+ Streamlit Dashboard
+          │
+          ├── KPI Cards
+          ├── Interactive Map
+          ├── Charts
+          ├── Data Tables
+          └── Alert Logging
+```
+
+---
+
+## Technologies Used
+
+* Python
+* Microsoft Azure Blob Storage
+* Streamlit
+* Pandas
+* NumPy
+* Plotly Express
+* Azure Storage Blob SDK
+
+---
+
+## Project Structure
+
+```
+.
+├── Dashboard/
+|   ├── app.py
+├── requirements.txt
+├── README.md
+├── Database_Setup/
+│   ├── create_tables.sql
+├── Stream_Analytics\
+│   └── anomaly_detection.sql
+├── Traffic_Project/Data_Simulator
+|   └── traffic_generator.ipynp
+├── .gitignore
+└── screenshots/
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https: https://github.com/sherif-ahmed1/Real-Time-Traffic-Analytics.git
+```
+
+Move into the project directory:
+
+```bash
+cd Real-Time-Traffic-Analytics
+```
+
+Install the required packages:
+
+```bash
 pip install -r requirements.txt
+```
 
-Configuration Instructions
-If your dashboard connects to Azure (e.g., Event Hubs or Blob Storage) to pull the live data, create a .env file in the root directory.
+---
 
-Add your required connection strings or API keys to the .env file to ensure secure authentication without hardcoding credentials into the script.
+## Configuration
 
-Execution Guide
-Launch the Dashboard: Open your terminal in the project directory and execute the main application file.
+Create an Azure Storage Account and update the connection string inside the application:
 
-If using standard Python/Dash: python app.py
+```python
+AZURE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=storagetraffic11;AccountKey=FndnvLfVm8RgEvB7S3vIPnmeM9ukN51X8F/GoDQWB6K8ZQwe1Ukm86WOVVOK4Qsd0ywelUYDtByH+ASt7EZRpA==;EndpointSuffix=core.windows.net"
+```
 
-If using Streamlit: streamlit run app.py
+Configure the required containers:
 
-Access the Interface: Once the server starts, open your web browser and navigate to the provided local host address (typically [http://127.0.0.1:8050](http://127.0.0.1:8050) or http://localhost:8501).
+* violations
+* output
 
-Interact: The dashboard will automatically begin ingesting the traffic data and updating the visual charts in real time.
+---
 
-Data Schema
-The Python dashboard expects the incoming traffic data (whether streamed directly or pulled from the cloud) to follow this core structure:
+## Running the Application
 
-VehicleID: (String) Unique identifier for the vehicle.
+Start the Streamlit application:
 
-Timestamp: (Datetime) The exact time the telemetry was recorded.
+```bash
+python -m streamlit run app.py
+```
 
-Latitude: (Float) GPS coordinate.
+The dashboard will be available at:
 
-Longitude: (Float) GPS coordinate.
+```
+http://localhost:8501
+```
 
-Speed: (Integer) Speed in km/h.
+---
 
-Executable Files & Deployment Links
-Since the project is delivered as a Python-based web dashboard rather than a compiled binary, there are no .exe or .apk files. The deployment is handled by running the Python application.
+## Dashboard Capabilities
 
-Project Artifacts & Links:
+The dashboard provides:
 
-Source Code: The main Python dashboard script (e.g., app.py) and any associated visualization modules.
+* Live traffic monitoring
+* Vehicle speed analytics
+* Violation distribution
+* Traffic signal analysis
+* Interactive filtering
+* License plate lookup
+* Geographical visualization
+* Historical alert logs
 
-Requirements File: requirements.txt containing all necessary Python libraries for the visualization environment.
+---
 
-Deployed App Link: [Insert the URL here if the Python dashboard is hosted on a cloud platform like Azure App Service, Streamlit Community Cloud, or Heroku. If it is only run locally, state: "Run locally via instructions above."]
+## Error Handling
 
-Architecture Diagram: A visual flow showing how the data reaches the Python dashboard.
+The application includes several fault-tolerance mechanisms:
+
+* Missing JSON fields are automatically generated with fallback values.
+* Azure connection failures trigger simulation mode.
+* Empty datasets are handled gracefully.
+* Runtime exceptions are logged without terminating the application.
+
+---
+
+## Future Improvements
+
+* Machine learning for traffic prediction
+* Historical data warehouse
+* Real-time event streaming with Azure Event Hub
+* User authentication and role management
+* REST API for external integrations
+
+---
+
+## Team Members
+
+* Project Manager / Lead Data Engineer : Feras Adel
+* Data Pipeline Engineer : Mariam Marwan , Mohamed Hamed , Sherif Ahmed
+* Data Analyst : Abdelrahman Samy , Kenzy Heasham 
+
+---
+
+## License
+
+This project was developed for educational purposes as part of a Data Engineering course.
