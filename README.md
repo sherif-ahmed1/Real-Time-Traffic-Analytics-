@@ -1,4 +1,3 @@
-README File: Real-Time Traffic Analytics Dashboard
 System Requirements
 Operating System: Windows 10/11, macOS, or Linux.
 
