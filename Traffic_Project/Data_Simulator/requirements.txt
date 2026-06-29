@@ -1,3 +1,0 @@
-Install:
-1-azure-eventhub
-2-pytz
