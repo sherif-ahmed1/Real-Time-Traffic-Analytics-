@@ -1,0 +1,14 @@
+# Azure Cloud Infrastructure & Ingestion
+azure-storage-blob>=12.19.0
+azure-core>=1.30.0
+
+# Core Data Processing & Schema Enforcement
+pandas>=2.2.0
+numpy>=1.26.0
+
+# Analytical Timezone Management
+pytz>=2024.1
+
+# Real-Time Operational UI & Visualization
+streamlit>=1.32.0
+plotly>=5.19.0
