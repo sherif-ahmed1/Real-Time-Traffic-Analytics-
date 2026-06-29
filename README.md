@@ -73,11 +73,12 @@ Azure Blob Storage
 ├── requirements.txt
 ├── README.md
 ├── Database_Setup/
-│   ├── create_tables.sql
+│   └── create_tables.sql
 ├── Stream_Analytics\
 │   └── anomaly_detection.sql
 ├── Traffic_Project/Data_Simulator
 |   └── traffic_generator.ipynp
+|   └── config.json
 ├── .gitignore
 └── screenshots/
 ```
