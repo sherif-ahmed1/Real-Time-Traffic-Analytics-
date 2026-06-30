@@ -105,19 +105,3 @@ SELECT
     reckless_driving_anomaly_count
 INTO [generalinfo]
 FROM WindowedTraffic;
- 
--- Output 3: Live Traffic Stream customized for Power BI Visuals
-SELECT
-    [timestamp],
-    location,
-    vehicle_type,
-    speed_kmh,
-    speed_limit,
-    violation,
-    ticket_type,
-    crossed_on_red,
-    speed_violation,
-    seatbelt_violation,
-    reckless_driving_anomaly
-INTO [My-workspace]
-FROM CleanTraffic;
