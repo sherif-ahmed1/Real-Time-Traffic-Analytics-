@@ -75,7 +75,7 @@ Azure Blob Storage
 ├── Database_Setup/
 │   └── create_tables.sql
 ├── Traffic_Project/Data_Simulator
-|   └── traffic_generator.ipynp
+|   └── traffic_generator.py
 |   └── config.json
 ├── .gitignore
 └── screenshots/
