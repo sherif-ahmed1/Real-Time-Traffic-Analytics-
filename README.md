@@ -78,7 +78,10 @@ Azure Blob Storage
 |   └── traffic_generator.py
 |   └── config.json
 ├── .gitignore
-└── screenshots/
+└── Dash_board1.jpeg
+└── Dash_board2.jpeg
+└── Dash_board3.jpeg
+└── Dash_board4.jpeg
 ```
 
 ---
